@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="shortcut icon" href="smile.png" type="image/x-icon">
+	<title>Word and Character counter</title>
+	<style type="text/css">
+		body{
+			display:flex;
+			align-items: center;
+			background-color: #E7CBCB;
+			justify-content: center;
+			height:100vh;
+			width:100vw;
+		}
+		#div1{
+			text-align:center;
+			border:2px solid black;
+			width:700px;
+			height:600px;
+			background-color:#C88EA7;
+			border-radius:10px;
+		}
+		textarea{
+			height:400px;
+			width:650px;
+			border:2px solid black;
+			resize:none;
+			text-overflow: wrap;
+			border-radius:10px;
+			font-size:20px;
+			padding:5px;
+			background-color: #F9EEFA ;
+
+		}
+		h1{
+			border:1px solid black;
+			width:660px;
+			margin-left: 20px;
+			margin-right: 20px;
+			background-color: #99627A;
+			color:#F9EEFA;
+			border-radius: 10px;
+
+		}
+		p{
+			font-size:25px;
+			font-family: 'Bruno Ace SC', cursive;
+		}
+		span{
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+<div id="div1">
+	<h1>Word and Character Counter</h1>
+	<textarea placeholder="Enter your text here..." autofocus id="textarea"></textarea>
+	<p><span id="spanw">0</span> words and <span id="spanc">0</span> characters</p>
+</div>
+<script type="text/javascript">
+	var textarea=document.getElementById("textarea");
+	textarea.addEventListener("input",function(){
+		var char=(this.value).length;
+		document.getElementById("spanc").innerHTML=char;
+	})
+	textarea.addEventListener("input",function(){
+		var str=this.value
+		var wordsArray=str.split(" ");
+		var words=0;
+		for(i=0;i<wordsArray.length;i++){
+			if(wordsArray[i]!=="")
+				words=words+1;
+		}
+		document.getElementById("spanw").innerHTML=words;
+	})
+</script>
+</body>
+</html>
